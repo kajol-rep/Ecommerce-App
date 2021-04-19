@@ -2,14 +2,20 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useData } from "../Contexts/dataProvider";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import Modal from "../Components/Modal";
+import { LoginModal } from "../Components/LoginModal";
+import { useAuth } from "../Contexts/authProvider";
 export function ProductDescription() {
   const { productId } = useParams();
   const {
     state: { products },
     addToCart,
+    open,
+    setOpen,
+    handleClose,
     addToWishList
   } = useData();
-
+  const { login } = useAuth();
   function getProductDetails(products, productId) {
     return products.find((product) => product.id === productId);
   }
@@ -51,7 +57,9 @@ export function ProductDescription() {
               <button
                 className="secondary-btn 
                       curved-edge-btn"
-                onClick={() => addToWishList(product)}
+                onClick={() =>
+                  login ? addToWishList(product) : setOpen("login-modal")
+                }
               >
                 Add to wishlist
               </button>
@@ -79,6 +87,11 @@ export function ProductDescription() {
           </div>
         </div>
       </div>
+      {open === "login-modal" && (
+        <Modal open={open} onclose={handleClose} dismissable>
+          <LoginModal />
+        </Modal>
+      )}
     </div>
   );
 }

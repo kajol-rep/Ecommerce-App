@@ -1,6 +1,4 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
-import axios from "axios";
-
 import { dataReducer } from "./dataReducer";
 
 export const DataContext = createContext();
