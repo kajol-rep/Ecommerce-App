@@ -217,7 +217,10 @@ export function ProductsListing() {
                  
                 `}
               >
-                <div style={{ height: "200px" }} className="img-container">
+                <div
+                  style={{ height: "200px", width: "250px" }}
+                  className="img-container"
+                >
                   <Link className="link-btn" to={`/product/${productItem.id}`}>
                     <img
                       alt="dress-img"

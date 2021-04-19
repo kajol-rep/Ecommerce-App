@@ -21,6 +21,10 @@ export function DataProvider({ children }) {
     petsType: null
   });
 
+  function fetchDataToProducts(getData) {
+    dispatch({ type: "FETCH_TO_PRODUCTS", payload: getData });
+  }
+
   function addToCart(productItem) {
     dispatch({ type: "OPEN_SNACKBAR", payload: "Added to cart !" });
     console.log("isaddedtoCart", productItem.isAddedToCart);
@@ -82,6 +86,7 @@ export function DataProvider({ children }) {
         dispatch,
         open,
         setOpen,
+        fetchDataToProducts,
         handleClose
       }}
     >
