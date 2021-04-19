@@ -1,7 +1,7 @@
 export const sliderImages = [
   {
     img:
-      "https://img5.goodfon.com/wallpaper/nbig/9/b1/2k-hd-background-animal-cat-orange-glance-pet-collar-cute-vi.jpg",
+      "https://images.wallpaperscraft.com/image/cat_orange_view_154983_1280x720.jpg",
     category: "COLLARS AND LEASHES",
     info: "Rich and elegant designs at affordable prices",
     btnInfo: "Order now"

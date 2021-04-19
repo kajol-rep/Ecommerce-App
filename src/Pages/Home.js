@@ -63,8 +63,10 @@ export function Home() {
       <hr />
       <p className="medium-text bold-text text-center">POPULAR BRANDS</p>
       <div className="flex-row flex-wrap flex-gap">
-        {brands.map((i) => (
-          <img className="brand-img" alt="brand" src={i} />
+        {brands.map(({ name, img }) => (
+          <div key={name}>
+            <img className="brand-img" alt="brand" src={img} />
+          </div>
         ))}
       </div>
     </>

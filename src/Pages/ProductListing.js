@@ -82,7 +82,7 @@ export function ProductsListing() {
               <label>
                 <input
                   type="radio"
-                  name="sort"
+                  name="sort2"
                   onChange={() =>
                     dispatch({ type: "SORT", payload: "PRICE_HIGH_TO_LOW" })
                   }
@@ -96,7 +96,7 @@ export function ProductsListing() {
                 {" "}
                 <input
                   type="radio"
-                  name="sort"
+                  name="sort2"
                   onChange={() =>
                     dispatch({ type: "SORT", payload: "PRICE_LOW_TO_HIGH" })
                   }
@@ -298,6 +298,7 @@ export function ProductsListing() {
           </Modal>
         )}
       </div>
+      <div className="container mobile-mode"></div>
     </div>
   );
 }

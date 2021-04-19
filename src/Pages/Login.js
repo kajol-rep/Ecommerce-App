@@ -30,12 +30,14 @@ export function Login() {
         <label type="text" className="small-text bold-text">
           Password
         </label>
-        <input
-          type="text"
-          value={password}
-          onChange={setPassword}
-          className="input-box-container bg-white"
-        ></input>
+        <div>
+          <input
+            type="password"
+            value={password}
+            onChange={setPassword}
+            className="input-box-container width-full bg-white"
+          ></input>
+        </div>
         <div className="smallest-text red">{errorMessage}</div>
         <button
           class="primary-btn curved-edge-btn"
