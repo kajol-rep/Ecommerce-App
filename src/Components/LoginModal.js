@@ -1,7 +1,5 @@
 import React from "react";
-import Modal from "../Components/Modal";
 import { Link } from "react-router-dom";
-import { useData } from "../Contexts/dataProvider";
 export function LoginModal() {
   return (
     <div className="flex-column">

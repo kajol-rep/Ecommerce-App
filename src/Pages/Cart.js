@@ -1,13 +1,20 @@
 import React, { useEffect } from "react";
 import { useData } from "../Contexts/dataProvider";
 import { Link } from "react-router-dom";
+import Modal from "../Components/Modal";
+import { LoginModal } from "../Components/LoginModal";
+import { useAuth } from "../Contexts/authProvider";
 
 export function Cart() {
   const {
     state: { cartItems },
     addToWishList,
+    open,
+    setOpen,
+    handleClose,
     dispatch
   } = useData();
+  const { login } = useAuth();
   const TotalItemsInCart = cartItems.reduce(
     (count, item) => count + item.quantity,
     0
@@ -132,7 +139,11 @@ export function Cart() {
                         <button
                           className="secondary-btn 
                       curved-edge-btn"
-                          onClick={() => addToWishList(cartItem)}
+                          onClick={() =>
+                            login
+                              ? addToWishList(cartItem)
+                              : setOpen("login-modal")
+                          }
                         >
                           Add to wishlist
                         </button>
@@ -196,6 +207,11 @@ export function Cart() {
             </button>
           </div>
         </div>
+      )}
+      {open === "login-modal" && (
+        <Modal open={open} onclose={handleClose} dismissable>
+          <LoginModal />
+        </Modal>
       )}
     </div>
   );

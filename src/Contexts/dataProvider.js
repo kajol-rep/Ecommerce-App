@@ -22,21 +22,6 @@ export function DataProvider({ children }) {
     showLoginModal: false,
     petsType: null
   });
-  async function fetchData({ url, dispatchType, listType }) {
-    try {
-      const { data, status } = await axios.get(url);
-
-      if (status === 200) {
-        console.log("inside fetchData", data);
-        localStorage.setItem("data", JSON.stringify(data));
-        const getData = JSON.parse(localStorage?.getItem("data"));
-        console.log(getData);
-        dispatch({ type: dispatchType, payload: getData[listType] });
-      }
-    } catch (error) {
-      alert(error);
-    }
-  }
 
   function addToCart(productItem) {
     dispatch({ type: "OPEN_SNACKBAR", payload: "Added to cart !" });
@@ -93,7 +78,6 @@ export function DataProvider({ children }) {
     <DataContext.Provider
       value={{
         state,
-        fetchData,
         addToCart,
         addToWishList,
         addToCartFromWishlist,

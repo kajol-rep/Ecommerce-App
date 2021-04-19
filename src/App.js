@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./styles.css";
+import axios from "axios";
 import { Snackbar } from "./Components/Snackbar";
 import { useData } from "./Contexts/dataProvider";
 import { Routes, Route } from "react-router-dom";
@@ -18,15 +19,19 @@ import { Categories } from "./Pages/Categories";
 export default function App() {
   const {
     state: { snackbarText },
-    fetchData
+    dispatch
   } = useData();
+
   useEffect(() => {
-    fetchData({
-      url: "/api/products",
-      dispatchType: "FETCH_TO_PRODUCTS",
-      listType: "products"
-    });
-  }, []);
+    (async function () {
+      try {
+        const response = await axios.get("/api/products");
+        localStorage.setItem("data", JSON.stringify(response.data.products));
+        const getData = JSON.parse(localStorage?.getItem("data"));
+        dispatch({ type: "FETCH_TO_PRODUCTS", payload: getData });
+      } catch (error) {}
+    })();
+  }, [dispatch]);
   return (
     <div className="App">
       <NavBar />
