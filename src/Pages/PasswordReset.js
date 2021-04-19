@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HiEyeOff, HiEye } from "react-icons/hi";
+import { useToggle } from "../CustomHooks/useToggle";
 
 export function PasswordReset() {
   const navigate = useNavigate();
   const [newPassword, setnewPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [errorState, setErrorState] = useState("");
-  const [eye, setEye] = useState(false);
+  const [eye, setEye] = useToggle(false);
   const strongRejex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
 
   function handleNewPassword(event) {
@@ -29,11 +30,6 @@ export function PasswordReset() {
     } else {
       setErrorState("");
     }
-  }
-
-  function handleVisibility(e) {
-    setEye((prev) => !prev);
-    e.preventDefault();
   }
 
   function buttonHandler(e) {
@@ -68,7 +64,7 @@ export function PasswordReset() {
               value={confirmPassword}
               onChange={handleconfirmPassword}
             ></input>
-            <div onClick={handleVisibility}>
+            <div onClick={setEye}>
               {eye ? <HiEyeOff color="grey" /> : <HiEye color="grey" />}
             </div>
           </div>
