@@ -6,10 +6,11 @@ export function AuthProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  let loginInfo = false;
   useEffect(() => {
-    const loginStatus = JSON.parse(localStorage?.getItem("login"));
+    const loginStatus = JSON.parse(localStorage?.getItem(loginInfo));
     loginStatus?.isUserLoggedIn && setLogin(true);
-  });
+  }, [loginInfo]);
 
   async function loginUserWithCredentials(username, password) {
     try {
@@ -18,7 +19,7 @@ export function AuthProvider({ children }) {
       if (response.success) {
         setLogin(true);
         navigate("/products-listing");
-       const login = localStorage?.setItem(
+        loginInfo = localStorage?.setItem(
           "login",
           JSON.stringify({ isUserLoggedIn: true })
         );
@@ -30,7 +31,7 @@ export function AuthProvider({ children }) {
   }
   function logoutUser() {
     setLogin(false);
-    const login = localStorage?.removeItem("login");
+    loginInfo = localStorage?.removeItem("login");
     navigate("/");
   }
   return (

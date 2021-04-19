@@ -19,14 +19,14 @@ export function Cart() {
   useEffect(() => {
     cartItems.map((item) => {
       if (item.quantity === 0) {
-        dispatch({
+        return dispatch({
           type: "REMOVE_ITEM_FROM_CART",
           payload: item
         });
-        console.log("after item is removed from cart", item.isAddedToCart);
       }
+      return item;
     });
-  }, []);
+  }, [cartItems, dispatch]);
 
   return (
     <div className="padding3-left-right">

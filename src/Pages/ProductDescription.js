@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useData } from "../Contexts/dataProvider";
-import { HiOutlineShoppingCart, HiStar } from "react-icons/hi";
+import { HiOutlineShoppingCart } from "react-icons/hi";
 export function ProductDescription() {
   const { productId } = useParams();
   const {
@@ -9,14 +9,13 @@ export function ProductDescription() {
     addToCart,
     addToWishList
   } = useData();
-  console.log("product page");
-  console.log("products", products);
+
   function getProductDetails(products, productId) {
     return products.find((product) => product.id === productId);
   }
 
   const product = getProductDetails(products, productId);
-  console.log(product);
+
   return (
     <div className=" padding3-left-right padding-one">
       <div

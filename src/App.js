@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./styles.css";
 import { Snackbar } from "./Components/Snackbar";
 import { useData } from "./Contexts/dataProvider";
@@ -26,7 +26,7 @@ export default function App() {
       dispatchType: "FETCH_TO_PRODUCTS",
       listType: "products"
     });
-  }, []);
+  }, [fetchData]);
   return (
     <div className="App">
       <NavBar />
