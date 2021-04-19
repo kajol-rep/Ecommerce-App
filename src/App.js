@@ -32,7 +32,7 @@ export default function App() {
         fetchDataToProducts(getData);
       } catch (error) {}
     })();
-  }, []);
+  });
   return (
     <div className="App">
       <NavBar />
