@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
       if (response.success) {
         setLogin(true);
         navigate("/products-listing");
-        localStorage?.setItem(
+       const login = localStorage?.setItem(
           "login",
           JSON.stringify({ isUserLoggedIn: true })
         );
@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
   }
   function logoutUser() {
     setLogin(false);
-    localStorage?.removeItem("login");
+    const login = localStorage?.removeItem("login");
     navigate("/");
   }
   return (
