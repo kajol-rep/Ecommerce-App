@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useData } from "../Contexts/dataProvider";
 import Modal from "../Components/Modal";
 import { useAuth } from "../Contexts/authProvider";
+import { LoginModal } from "../Components/LoginModal";
 
 export function ProductsListing() {
   const {
@@ -23,14 +24,12 @@ export function ProductsListing() {
     },
     addToCart,
     addToWishList,
+    open,
+    setOpen,
+    handleClose,
     dispatch
   } = useData();
   const { login } = useAuth();
-  const [open, setOpen] = useState();
-
-  function handleClose() {
-    setOpen(null);
-  }
 
   const getSortedData = (items, sortBy, searchedItems) => {
     if (searchedItems.length === 0) {
@@ -289,24 +288,12 @@ export function ProductsListing() {
               </div>
             </li>
           ))}
-          {open === "login-modal" && (
-            <Modal open={open} onclose={handleClose} dismissable>
-              <div className="grey-text small-text">
-                Login to this site to access your personalised wishlist and cart
-                checkout. Just fill in the fields below, and we’ll get a new
-                account set up for you in no time. We will only ask you for
-                information necessary to make the purchase process faster and
-                easier.
-              </div>
-              <br />
-              <button className="primary-btn curved-edge-btn">
-                <Link className="link-btn" to="/login">
-                  Login
-                </Link>
-              </button>
-            </Modal>
-          )}
         </ul>
+        {open === "login-modal" && (
+          <Modal open={open} onclose={handleClose} dismissable>
+            <LoginModal />
+          </Modal>
+        )}
       </div>
     </div>
   );

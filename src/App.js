@@ -26,7 +26,7 @@ export default function App() {
       dispatchType: "FETCH_TO_PRODUCTS",
       listType: "products"
     });
-  }, [fetchData]);
+  }, []);
   return (
     <div className="App">
       <NavBar />

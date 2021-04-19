@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import axios from "axios";
 
 import { dataReducer } from "./dataReducer";
@@ -9,6 +9,7 @@ export function useData() {
 }
 
 export function DataProvider({ children }) {
+  const [open, setOpen] = useState();
   const [state, dispatch] = useReducer(dataReducer, {
     products: [],
     wishListItems: [],
@@ -84,6 +85,10 @@ export function DataProvider({ children }) {
 
     console.log("after wishlst added to cart", wishListItem.isAddedToCart);
   }
+  function handleClose() {
+    console.log("inside close");
+    setOpen(null);
+  }
   return (
     <DataContext.Provider
       value={{
@@ -92,7 +97,10 @@ export function DataProvider({ children }) {
         addToCart,
         addToWishList,
         addToCartFromWishlist,
-        dispatch
+        dispatch,
+        open,
+        setOpen,
+        handleClose
       }}
     >
       {children}
