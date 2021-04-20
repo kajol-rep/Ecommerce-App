@@ -41,9 +41,9 @@ export function WishList() {
       )}
       <ul>
         {wishListItems.map((wishListItem) => (
-          <li className="light-border" key={wishListItem.id}>
+          <li className="light-border " key={wishListItem.id}>
             <div
-              className=" 
+              className=" gc2-wishlist
                  horizontal-card text-center"
             >
               <div
@@ -74,6 +74,42 @@ export function WishList() {
                     <div> 3 days minimum </div>
                   )}
                 </Link>
+                <div className="desktop-mode padding-one">
+                  <button
+                    class="danger-btn curved-edge-btn"
+                    onClick={() =>
+                      dispatch({
+                        type: "REMOVE_ITEM_FROM_WISHLIST",
+                        payload: wishListItem
+                      })
+                    }
+                  >
+                    Remove
+                  </button>{" "}
+                  {wishListItem.quantity > 0 ? (
+                    <button
+                      className="primary-outline-btn 
+                  curved-edge-btn"
+                    >
+                      Already in Cart
+                    </button>
+                  ) : (
+                    <button
+                      className="primary-btn 
+                  curved-edge-btn"
+                      onClick={() => addToCartFromWishlist(wishListItem)}
+                    >
+                      Move to Cart
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="mobile-mode">
+              <div
+                style={{ justifyContent: "space-evenly" }}
+                className="flex-row padding-one"
+              >
                 <button
                   class="danger-btn curved-edge-btn"
                   onClick={() =>
