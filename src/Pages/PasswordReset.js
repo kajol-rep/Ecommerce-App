@@ -42,8 +42,7 @@ export function PasswordReset() {
         <div className="medium-text bold-text">Reset password</div>
         <form>
           <label className="small-text bold-text">New password</label>
-          <br />
-          <br />
+
           <div className="input-box-container bg-white">
             <input
               type="text"
@@ -56,8 +55,7 @@ export function PasswordReset() {
           <label type="text" className="small-text bold-text">
             Confirm password
           </label>
-          <br />
-          <br />
+
           <div className="input-box-container bg-white">
             <input
               type={eye ? "text" : "password"}

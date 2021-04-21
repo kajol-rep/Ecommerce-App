@@ -7,20 +7,34 @@ export function Register() {
     <div>
       <div className=" form-box card padding-one flex-gap vertical-card card-shadow">
         <div className="medium-text bold-text">Create Account</div>
-        <label className="small-text bold-text">Name </label>
-        <input type="text" className="input-box-container bg-white"></input>
+        <form>
+          <label className="small-text bold-text">Name </label>
+          <div className="input-box-container bg-white">
+            <input type="text"></input>
+          </div>
 
-        <label className="small-text bold-text">Email </label>
-        <input type="email" className="input-box-container bg-white"></input>
+          <br />
 
-        <label className="small-text bold-text">Mobile number </label>
-        <input type="number" className="input-box-container bg-white"></input>
+          <label className="small-text bold-text">Email </label>
+          <div className="input-box-container bg-white">
+            <input type="email"></input>
+          </div>
 
-        <label className="small-text bold-text">Password </label>
-        <input type="text" className="input-box-container bg-white"></input>
+          <br />
+          <label className="small-text bold-text">Mobile number </label>
+          <div className="input-box-container bg-white">
+            <input type="number"></input>
+          </div>
 
-        <button class="primary-btn curved-edge-btn">Continue</button>
+          <br />
+          <label className="small-text bold-text">Password </label>
+          <div className="input-box-container bg-white">
+            <input type="password"></input>
+          </div>
 
+          <br />
+          <button class="primary-btn curved-edge-btn">Continue</button>
+        </form>
         <div className="light-border"></div>
         <div>Already have an account?</div>
 
