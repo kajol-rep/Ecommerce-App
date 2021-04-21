@@ -25,7 +25,7 @@ export function WishList() {
           <div className="img-container">
             <img
               alt="dog"
-              src="https://img2.pngio.com/pets-pet-puppy-kitten-lovepets-dog-dogs-cat-cat-high-kittens-puppies-png-920_406.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR41ziSjhxV94vl9Q9izqh0qZeUlA7ynUbEWaXTJrnAzv1PNlnxUsut5cFdcDksbapvPiU&usqp=CAU"
             />
           </div>
           <div>

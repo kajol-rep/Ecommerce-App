@@ -14,7 +14,7 @@ export function Register() {
         <input type="email" className="input-box-container bg-white"></input>
 
         <label className="small-text bold-text">Mobile number </label>
-        <input type="email" className="input-box-container bg-white"></input>
+        <input type="number" className="input-box-container bg-white"></input>
 
         <label className="small-text bold-text">Password </label>
         <input type="text" className="input-box-container bg-white"></input>

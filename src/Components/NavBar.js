@@ -45,9 +45,11 @@ export function NavBar() {
         <div className="flex-row flex-grow-one">
           <div className="search-bar">
             <input
+              type="search"
               placeholder="Search"
               value={itemToSearch}
               onChange={(event) => setItemToSearch(event.target.value)}
+              className="width-full"
             ></input>
           </div>
           <Link className="link-btn" to="/products-listing">
@@ -125,9 +127,11 @@ export function NavBar() {
       <div className="flex-row ">
         <div className="mobile-search-bar">
           <input
+            type="search"
             placeholder="Search"
             value={itemToSearch}
             onChange={(event) => setItemToSearch(event.target.value)}
+            className="width-full"
           ></input>
         </div>
         <div className="">

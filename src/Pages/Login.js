@@ -11,39 +11,46 @@ export function Login() {
   const [email, setEmail] = useInputValue("");
   const [password, setPassword] = useInputValue("");
 
-  function buttonHandler() {
+  function buttonHandler(event) {
     loginUserWithCredentials(email, password);
+    event.preventDefault();
   }
 
   return (
     <div>
       <div className=" form-box card  padding-one flex-gap vertical-card  card-shadow">
         <div className="medium-text bold-text">Sign-In</div>
-        <label className="small-text bold-text">Email</label>
-        <div className="input-box-container bg-white">
-          <input type="email" value={email} onChange={setEmail}></input>
-        </div>
+        <form>
+          <label className="small-text bold-text">Email</label>
 
-        <label type="text" className="small-text bold-text">
-          Password
-        </label>
-        <div className="input-box-container bg-white">
-          <input
-            type={eye ? "text" : "password"}
-            value={password}
-            onChange={setPassword}
-          ></input>
-          <div onClick={setEye}>
-            {eye ? <HiEyeOff color="grey" /> : <HiEye color="grey" />}
+          <div className="input-box-container bg-white">
+            <input type="email" value={email} onChange={setEmail}></input>
           </div>
-        </div>
-        <div className="smallest-text red">{errorMessage}</div>
-        <button
-          class="primary-btn curved-edge-btn"
-          onClick={() => buttonHandler()}
-        >
-          Continue
-        </button>
+          <br />
+
+          <label type="text" className="small-text bold-text">
+            Password
+          </label>
+
+          <div className="input-box-container bg-white">
+            <input
+              type={eye ? "text" : "password"}
+              value={password}
+              onChange={setPassword}
+            ></input>
+            <div onClick={setEye}>
+              {eye ? <HiEyeOff color="grey" /> : <HiEye color="grey" />}
+            </div>
+          </div>
+          <div className="smallest-text red">{errorMessage}</div>
+          <br />
+          <button
+            class="primary-btn curved-edge-btn"
+            onClick={() => buttonHandler(event)}
+          >
+            Continue
+          </button>
+        </form>
         <Link className="link-btn red" to="/reset-password">
           {" "}
           Forgot your password?
