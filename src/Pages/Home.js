@@ -11,7 +11,7 @@ export function Home() {
     <>
       <Slide easing="ease slider">
         {sliderImages.map(({ img, category, info, btnInfo }) => (
-          <div className="each-slide">
+          <div key={category} className="each-slide">
             <div
               className="slider-image bg-img width-full"
               style={{ backgroundImage: `url(${img})` }}

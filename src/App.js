@@ -19,7 +19,7 @@ import { Categories } from "./Pages/Categories";
 export default function App() {
   const {
     state: { snackbarText },
-    fetchDataToProducts
+    dispatch
   } = useData();
 
   useEffect(() => {
@@ -28,11 +28,12 @@ export default function App() {
         const response = await axios.get("/api/products");
         localStorage.setItem("data", JSON.stringify(response.data.products));
         const getData = JSON.parse(localStorage?.getItem("data"));
-        // dispatch({ type: "FETCH_TO_PRODUCTS", payload: getData });
-        fetchDataToProducts(getData);
+        if (response.status === 200) {
+          dispatch({ type: "FETCH_TO_PRODUCTS", payload: getData });
+        }
       } catch (error) {}
     })();
-  });
+  }, [dispatch]);
   return (
     <div className="App">
       <NavBar />

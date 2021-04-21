@@ -35,8 +35,8 @@ export default function setupMockServer() {
           productAdjective: faker.commerce.productAdjective(),
           material: faker.commerce.productMaterial(),
           brand: faker.lorem.word(),
-          inStock: faker.random.boolean(),
-          fastDelivery: faker.random.boolean(),
+          inStock: faker.datatype.boolean(),
+          fastDelivery: faker.datatype.boolean(),
 
           offer: faker.random.arrayElement([
             "Save 50",

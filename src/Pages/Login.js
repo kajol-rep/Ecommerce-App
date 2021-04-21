@@ -46,7 +46,7 @@ export function Login() {
           <br />
           <button
             class="primary-btn curved-edge-btn"
-            onClick={() => buttonHandler(event)}
+            onClick={() => buttonHandler()}
           >
             Continue
           </button>

@@ -30,18 +30,17 @@ export function NavBar() {
   return (
     <nav>
       <div className="activeNav flex-row flex-gap">
-        <div>
-          <Link className="nav-header link-btn" to="/">
-            <img
-              alt="logo"
-              className="logo"
-              src="https://i.pinimg.com/236x/d7/e6/fe/d7e6fe6c4e540f6468d8638f5008c1d9--pet-logo-cafe-logo.jpg"
-            />
-            <span className="logo-text" style={{ fontSize: "1.5rem" }}>
-              Petso.<span style={{ fontSize: "1rem" }}>com</span>
-            </span>
-          </Link>
-        </div>
+        <Link className="nav-header link-btn" to="/">
+          <img
+            alt="logo"
+            className="logo"
+            src="https://i.pinimg.com/236x/d7/e6/fe/d7e6fe6c4e540f6468d8638f5008c1d9--pet-logo-cafe-logo.jpg"
+          />
+          <span className="logo-text" style={{ fontSize: "1.5rem" }}>
+            Petso.<span style={{ fontSize: "1rem" }}>com</span>
+          </span>
+        </Link>
+
         <div className="flex-row flex-grow-one">
           <div className="search-bar">
             <input
@@ -123,7 +122,6 @@ export function NavBar() {
           </div>
         </Link>
       </div>
-
       <div className="flex-row ">
         <div className="mobile-search-bar">
           <input
