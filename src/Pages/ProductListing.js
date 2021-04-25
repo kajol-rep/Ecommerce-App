@@ -75,7 +75,7 @@ export function ProductsListing() {
       <div className="grid gc2-for-productlist ">
         {open === "sort" && (
           <Modal open={open} onclose={handleClose} dismissable>
-            <div className="height-full">
+            <div className="height-half">
               <div className="bold-text ">Sort by price</div>
               <hr className="padding-top-5 " />
               <div className="padding-bottom-5"></div>
@@ -109,7 +109,7 @@ export function ProductsListing() {
         )}
         {open === "filter" && (
           <Modal open={open} onclose={handleClose} dismissable>
-            <div className="height-full">
+            <div className="height-half">
               <div className="bold-text ">Availability</div>
               <hr className="padding-top-5 " />
               <div className="padding-bottom-5"></div>

@@ -69,7 +69,6 @@ export function DataProvider({ children }) {
     console.log("after wishlst added to cart", wishListItem.isAddedToCart);
   }
   function handleClose() {
-    console.log("inside close");
     setOpen(null);
   }
   return (

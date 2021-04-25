@@ -276,6 +276,9 @@ nav {
 .height-full {
   height: 100vh;
 }
+.height-half{
+  height:50vh;
+}
 .slider-text {
   color: white;
   height: 100%;
@@ -314,9 +317,7 @@ nav {
 .grid-justify-center {
   justify-self: center;
 }
-.line-height {
-  line-height: 1rem;
-}
+
 .light-border {
   border: 1px solid #e8e8e8;
 }
