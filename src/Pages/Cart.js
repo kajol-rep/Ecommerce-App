@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Modal from "../Components/Modal";
 import { LoginModal } from "../Components/LoginModal";
 import { useAuth } from "../Contexts/authProvider";
+import { calculateDiscount } from "../util";
 
 export function Cart() {
   const {
@@ -55,7 +56,7 @@ export function Cart() {
                   <div className="light-border">
                     <div
                       className="
-                 horizontal-card text-center"
+                 horizontal-card "
                     >
                       <div
                         style={{ width: "200px", height: "150px" }}
@@ -65,34 +66,47 @@ export function Cart() {
                           className="link-btn"
                           to={`/product/${cartItem.id}`}
                         >
-                          <img
-                            style={{ height: "100%", width: "100%" }}
-                            alt="cart-item"
-                            src={cartItem.image}
-                          />
+                          <img alt="cart-item" src={cartItem.image} />
                         </Link>
                       </div>
-
-                      <div className="padding-one ">
+                      <div className="padding-one">
                         <Link
                           className="link-btn"
                           to={`/product/${cartItem.id}`}
                         >
                           <strong>{cartItem.name}</strong>
-                          <div>Rs.{cartItem.price} </div>
-                          {cartItem.inStock && (
-                            <div className="green"> In Stock </div>
-                          )}
-                          {!cartItem.inStock && (
-                            <div className="red"> Out of Stock </div>
-                          )}
-
-                          {cartItem.fastDelivery ? (
-                            <div> Fast Delivery </div>
-                          ) : (
-                            <div> 3 days minimum </div>
-                          )}
+                          <div className="padding-top flex flex-wrap">
+                            <strong>Rs.{cartItem.price}</strong>{" "}
+                            {cartItem.oldPrice !== cartItem.price && (
+                              <span>
+                                <span className="strike grey-text">
+                                  Rs.{cartItem.oldPrice}
+                                </span>{" "}
+                                <span className="red">
+                                  {calculateDiscount(
+                                    cartItem.price,
+                                    cartItem.oldPrice
+                                  )}
+                                  %OFF
+                                </span>
+                              </span>
+                            )}
+                          </div>
+                          <div className="padding-top">
+                            {cartItem.inStock && (
+                              <div className="green"> In Stock </div>
+                            )}
+                            {!cartItem.inStock && (
+                              <div className="red"> Out of Stock </div>
+                            )}
+                            {cartItem.fastDelivery ? (
+                              <div> Fast Delivery </div>
+                            ) : (
+                              <div> 3 days minimum </div>
+                            )}
+                          </div>
                         </Link>
+                        <div className="padding-top"></div>
                         <button
                           onClick={() =>
                             dispatch({
@@ -118,7 +132,6 @@ export function Cart() {
                         </button>
                       </div>
                     </div>
-
                     <div
                       style={{ justifyContent: "space-evenly" }}
                       className="flex-row padding-one"

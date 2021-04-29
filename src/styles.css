@@ -36,6 +36,9 @@ hr {
 .green {
   color: green;
 }
+.black {
+  color: black;
+}
 .pointer {
   cursor: pointer;
 }
@@ -274,10 +277,10 @@ nav {
   width: 100%;
 }
 .height-full {
-  height: 100vh;
+  height: 100%;
 }
-.height-half{
-  height:50vh;
+.height-half {
+  height: 50vh;
 }
 .slider-text {
   color: white;
@@ -293,6 +296,7 @@ nav {
 }
 .rating-badge {
   bottom: -5px;
+  padding: 0;
 }
 .position-relative {
   position: relative;
@@ -359,13 +363,22 @@ nav {
   padding: 1rem;
   z-index: 99;
 }
-.category-bar {
-  box-sizing: border-box;
-  background-color: rgb(204, 221, 253);
-  position: fixed;
-  left: 0;
-  width: 100%;
-  color: black;
-  padding: 1rem;
-  z-index: 99;
+.padding-left {
+  padding-left: 10px;
+}
+.padding-right {
+  padding-right: 10px;
+}
+.padding-top {
+  padding-top: 10px;
+}
+.card-image {
+  height: 230px;
+  width: 250px;
+}
+.img-container img {
+  height: 100%;
+}
+.strike {
+  text-decoration: line-through;
 }

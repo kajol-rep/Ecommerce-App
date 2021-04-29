@@ -12,6 +12,7 @@ import { useData } from "../Contexts/dataProvider";
 import Modal from "../Components/Modal";
 import { useAuth } from "../Contexts/authProvider";
 import { LoginModal } from "../Components/LoginModal";
+import { calculateDiscount, formatString } from "../util";
 
 export function ProductsListing() {
   const {
@@ -33,7 +34,6 @@ export function ProductsListing() {
 
   const getSortedData = (items, sortBy, searchedItems) => {
     if (searchedItems.length === 0) {
-      console.log(searchedItems.length);
       if (sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
         return items.sort((a, b) => b.price - a.price);
       }
@@ -74,7 +74,7 @@ export function ProductsListing() {
     <div className="padding3-left-right">
       <div className="grid gc2-for-productlist ">
         {open === "sort" && (
-          <Modal open={open} onclose={handleClose} dismissable>
+          <Modal open={open} onClose={handleClose} dismissable>
             <div className="height-half">
               <div className="bold-text ">Sort by price</div>
               <hr className="padding-top-5 " />
@@ -108,7 +108,7 @@ export function ProductsListing() {
           </Modal>
         )}
         {open === "filter" && (
-          <Modal open={open} onclose={handleClose} dismissable>
+          <Modal open={open} onClose={handleClose} dismissable>
             <div className="height-half">
               <div className="bold-text ">Availability</div>
               <hr className="padding-top-5 " />
@@ -212,25 +212,16 @@ export function ProductsListing() {
           {filteredData.map((productItem) => (
             <li className="position-relative" key={productItem.id}>
               <div
-                className={`card cw
-                vertical-card text-center card-shadow 
-                 
-                `}
+                className="card cw
+                vertical-card text-center card-shadow  
+                "
               >
-                <div
-                  style={{ height: "200px", width: "250px" }}
-                  className="img-container"
-                >
+                <div className="img-container card-image">
                   <Link className="link-btn" to={`/product/${productItem.id}`}>
-                    <img
-                      alt="dress-img"
-                      src={productItem.image}
-                      style={{ width: "100%" }}
-                    />
+                    <img alt="dress-img" src={productItem.image} />
                   </Link>
                   <div className="thumbnail">
                     <button
-                      style={{ backgroundColor: "#DCDCDC" }}
                       className="floating-action-btn round-btn bottom-right-btn "
                       onClick={() =>
                         login
@@ -244,10 +235,7 @@ export function ProductsListing() {
                         <HiOutlineHeart size="1rem" />
                       )}
                     </button>
-                    <span
-                      style={{ padding: "0" }}
-                      className="floating-action-btn rating-badge"
-                    >
+                    <span className="floating-action-btn rating-badge">
                       <Badge variant="success" shape="square">
                         <div className="flex-row">
                           <HiStar size="15px" />
@@ -259,21 +247,25 @@ export function ProductsListing() {
                 </div>
                 <Link className="link-btn" to={`/product/${productItem.id}`}>
                   <div className="padding-one">
-                    <strong>{productItem.name}</strong>
+                    <strong>{formatString(productItem.name)}</strong>
 
-                    <div>Rs.{productItem.price} </div>
-                    {productItem.inStock && (
-                      <div className="green"> In Stock </div>
-                    )}
-                    {!productItem.inStock && (
-                      <div className="red"> Out of Stock </div>
-                    )}
-
-                    {productItem.fastDelivery ? (
-                      <div> Fast Delivery </div>
-                    ) : (
-                      <div> 3 days minimum </div>
-                    )}
+                    <div className="padding-top">
+                      <strong>Rs.{productItem.price}</strong>{" "}
+                      {productItem.oldPrice !== productItem.price && (
+                        <span>
+                          <span className="strike grey-text">
+                            Rs.{productItem.oldPrice}
+                          </span>{" "}
+                          <span className="red">
+                            {calculateDiscount(
+                              productItem.price,
+                              productItem.oldPrice
+                            )}
+                            %OFF
+                          </span>
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </Link>
                 {productItem.inStock ? (
@@ -285,7 +277,7 @@ export function ProductsListing() {
                   </button>
                 ) : (
                   <button className="primary-btn flex-row disabled flex-gap">
-                    <HiOutlineShoppingCart /> Add to Cart
+                    Out of Stock
                   </button>
                 )}
               </div>
@@ -293,7 +285,7 @@ export function ProductsListing() {
           ))}
         </ul>
         {open === "login-modal" && (
-          <Modal open={open} onclose={handleClose} dismissable>
+          <Modal open={open} onClose={handleClose} dismissable>
             <LoginModal />
           </Modal>
         )}
