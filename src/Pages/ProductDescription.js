@@ -17,7 +17,7 @@ export function ProductDescription() {
   } = useData();
   const { login } = useAuth();
   function getProductDetails(products, productId) {
-    return products.find((product) => product.id === productId);
+    return products.find((product) => product.id === parseInt(productId, 10));
   }
 
   const product = getProductDetails(products, productId);

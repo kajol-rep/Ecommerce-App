@@ -15,6 +15,7 @@ import { Register } from "./Pages/Register";
 import { PasswordReset } from "./Pages/PasswordReset";
 import { PrivateRoute } from "./Components/PrivateRoute";
 import { Categories } from "./Pages/Categories";
+import { url } from "./util";
 
 export default function App() {
   const {
@@ -25,11 +26,11 @@ export default function App() {
   useEffect(() => {
     (async function () {
       try {
-        const response = await axios.get("/api/products");
+        const response = await axios.get(url);
         localStorage.setItem("data", JSON.stringify(response.data.products));
-        const getData = JSON.parse(localStorage?.getItem("data"));
+        const data = JSON.parse(localStorage?.getItem("data"));
         if (response.status === 200) {
-          dispatch({ type: "FETCH_TO_PRODUCTS", payload: getData });
+          dispatch({ type: "FETCH_PRODUCTS", payload: data });
         }
       } catch (error) {}
     })();

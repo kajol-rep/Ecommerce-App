@@ -1,6 +1,6 @@
 export const dataReducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_TO_PRODUCTS":
+    case "FETCH_PRODUCTS":
       const updatedWishListedItems = getUpdatedProductListIfWishListed(
         state.wishListItems,
         action.payload
