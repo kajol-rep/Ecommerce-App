@@ -14,7 +14,8 @@ export const sliderImages = [
     btnInfo: "Make your pet look smarter now"
   },
   {
-    img: "https://wallpaperaccess.com/full/4097218.jpg",
+    img:
+      "https://www.k9ofmine.com/wp-content/uploads/2019/11/best-interactive-dog-toys-1150x700.jpg",
     category: "DOG TOYS",
     info: "Have some fun with your dogs",
     btnInfo: "Order now"
