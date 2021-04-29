@@ -38,7 +38,7 @@ export function Register() {
         <div className="light-border"></div>
         <div>Already have an account?</div>
 
-        <Link style={{ color: "white" }} to="/login">
+        <Link className="white" to="/login">
           Sign-In Here
         </Link>
       </div>

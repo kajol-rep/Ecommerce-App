@@ -58,10 +58,7 @@ export function Cart() {
                       className="
                  horizontal-card "
                     >
-                      <div
-                        style={{ width: "200px", height: "150px" }}
-                        className="img-container"
-                      >
+                      <div className="img-container small-card-image">
                         <Link
                           className="link-btn"
                           to={`/product/${cartItem.id}`}
@@ -75,7 +72,7 @@ export function Cart() {
                           to={`/product/${cartItem.id}`}
                         >
                           <strong>{cartItem.name}</strong>
-                          <div className="padding-top flex flex-wrap">
+                          <div className="padding-top">
                             <strong>Rs.{cartItem.price}</strong>{" "}
                             {cartItem.oldPrice !== cartItem.price && (
                               <span>
@@ -132,10 +129,7 @@ export function Cart() {
                         </button>
                       </div>
                     </div>
-                    <div
-                      style={{ justifyContent: "space-evenly" }}
-                      className="flex-row padding-one"
-                    >
+                    <div className="flex-row padding-one space-even">
                       <button
                         class="danger-btn curved-edge-btn"
                         onClick={() =>
@@ -170,7 +164,7 @@ export function Cart() {
                       )}
                     </div>
                   </div>
-                  <div style={{ padding: "5px" }}></div>
+                  <div className="padding-five"></div>
                 </li>
               ))}
             </ul>
@@ -200,10 +194,7 @@ export function Cart() {
           </div>
         </>
       ) : (
-        <div
-          style={{ margin: "auto auto", width: "290px" }}
-          className=" vertical-card"
-        >
+        <div style={{ width: "290px" }} className=" vertical-card margin-auto">
           <img
             alt="dog"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR41ziSjhxV94vl9Q9izqh0qZeUlA7ynUbEWaXTJrnAzv1PNlnxUsut5cFdcDksbapvPiU&usqp=CAU"
@@ -222,7 +213,7 @@ export function Cart() {
         </div>
       )}
       {open === "login-modal" && (
-        <Modal open={open} onclose={handleClose} dismissable>
+        <Modal open={open} onClose={handleClose} dismissable>
           <LoginModal />
         </Modal>
       )}

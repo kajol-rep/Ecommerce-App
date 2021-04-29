@@ -36,6 +36,9 @@ hr {
 .green {
   color: green;
 }
+.white {
+  color: white;
+}
 .black {
   color: black;
 }
@@ -263,7 +266,7 @@ nav {
     display: grid;
     grid-gap: 10px;
     padding: 10px;
-    grid-template-columns: 20% auto;
+    grid-template-columns: 200px auto;
   }
 }
 .simple-btn {
@@ -376,9 +379,22 @@ nav {
   height: 230px;
   width: 250px;
 }
+.small-card-image {
+  height: 150px;
+  width: 200px;
+}
 .img-container img {
   height: 100%;
 }
 .strike {
   text-decoration: line-through;
+}
+.space-even {
+  justify-content: space-evenly;
+}
+.padding-five {
+  padding: 5rem;
+}
+.margin-auto {
+  margin: auto auto;
 }

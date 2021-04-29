@@ -117,7 +117,7 @@ export function ProductDescription() {
         <p>{product?.description}</p>
       </div>
       {open === "login-modal" && (
-        <Modal open={open} onclose={handleClose} dismissable>
+        <Modal open={open} onClose={handleClose} dismissable>
           <LoginModal />
         </Modal>
       )}

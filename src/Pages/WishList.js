@@ -1,6 +1,7 @@
 import React from "react";
 import { useData } from "../Contexts/dataProvider";
 import { Link } from "react-router-dom";
+import { calculateDiscount } from "../util";
 
 export function WishList() {
   const {
@@ -46,22 +47,33 @@ export function WishList() {
               className=" gc2-wishlist
                  horizontal-card text-center"
             >
-              <div
-                style={{ width: "200px", height: "150px" }}
-                className="img-container"
-              >
+              <div className="img-container small-card-image">
                 <Link to={`/product/${wishListItem.id}`}>
-                  <img
-                    style={{ height: "100%", width: "100%" }}
-                    alt="dress-img"
-                    src={wishListItem.image}
-                  />
+                  <img alt="dress-img" src={wishListItem.image} />
                 </Link>
               </div>
               <div className="padding-one">
                 <Link className="link-btn" to={`/product/${wishListItem.id}`}>
                   <strong>{wishListItem.name}</strong>
-                  <div>Rs.{wishListItem.price} </div>
+                  <div className="padding-top">
+                    <div className="text-center">
+                      <strong>Rs.{wishListItem.price}</strong>{" "}
+                      {wishListItem.oldPrice !== wishListItem.price && (
+                        <span>
+                          <span className="strike grey-text">
+                            Rs.{wishListItem.oldPrice}
+                          </span>{" "}
+                          <span className="red">
+                            {calculateDiscount(
+                              wishListItem.price,
+                              wishListItem.oldPrice
+                            )}
+                            %OFF
+                          </span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
                   {wishListItem.inStock && (
                     <div className="green"> In Stock </div>
                   )}
@@ -106,10 +118,7 @@ export function WishList() {
               </div>
             </div>
             <div className="mobile-mode">
-              <div
-                style={{ justifyContent: "space-evenly" }}
-                className="flex-row padding-one"
-              >
+              <div className="flex-row padding-one space-even">
                 <button
                   class="danger-btn curved-edge-btn"
                   onClick={() =>

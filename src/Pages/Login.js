@@ -58,7 +58,7 @@ export function Login() {
         <div className="light-border"></div>
         <div>Not registered yet?</div>
 
-        <Link style={{ color: "white" }} to="/register">
+        <Link className="white" to="/register">
           Create An Account Here
         </Link>
       </div>
