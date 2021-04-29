@@ -1,11 +1,11 @@
 import React from "react";
 import { useData } from "../Contexts/dataProvider";
 import { Link } from "react-router-dom";
-import { calculateDiscount } from "../util";
+import { calculateDiscount, checkIfProductExistsInList } from "../util";
 
 export function WishList() {
   const {
-    state: { wishListItems },
+    state: { wishListItems, cartItems },
     addToCartFromWishlist,
     dispatch
   } = useData();
@@ -98,7 +98,7 @@ export function WishList() {
                   >
                     Remove
                   </button>{" "}
-                  {wishListItem.quantity > 0 ? (
+                  {checkIfProductExistsInList(cartItems, wishListItem.id) ? (
                     <button
                       className="primary-outline-btn 
                   curved-edge-btn"
@@ -130,7 +130,7 @@ export function WishList() {
                 >
                   Remove
                 </button>{" "}
-                {wishListItem.quantity > 0 ? (
+                {checkIfProductExistsInList(cartItems, wishListItem.id) ? (
                   <button
                     className="primary-outline-btn 
                   curved-edge-btn"

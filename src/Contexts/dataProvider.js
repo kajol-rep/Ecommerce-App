@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
+import { checkIfProductExistsInList } from "../util";
 import { dataReducer } from "./dataReducer";
 
 export const DataContext = createContext();
@@ -24,7 +25,7 @@ export function DataProvider({ children }) {
   function addToCart(productItem) {
     dispatch({ type: "OPEN_SNACKBAR", payload: "Added to cart !" });
     console.log("isaddedtoCart", productItem.isAddedToCart);
-    !productItem.isAddedToCart
+    !checkIfProductExistsInList(state.cartItems, productItem.id)
       ? dispatch({
           type: "ADD_ITEM_TO_CART",
           payload: { ...productItem, quantity: 1 }
@@ -38,7 +39,7 @@ export function DataProvider({ children }) {
   function addToWishList(productItem) {
     console.log("inside handlewish", productItem.name);
 
-    if (!productItem.isWishListed) {
+    if (!checkIfProductExistsInList(state.wishListItems, productItem.id)) {
       dispatch({ type: "OPEN_SNACKBAR", payload: "Added to wishlist !" });
       dispatch({
         type: "ADD_ITEM_TO_WISHLIST",

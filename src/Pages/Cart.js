@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import Modal from "../Components/Modal";
 import { LoginModal } from "../Components/LoginModal";
 import { useAuth } from "../Contexts/authProvider";
-import { calculateDiscount } from "../util";
+import { calculateDiscount, checkIfProductExistsInList } from "../util";
 
 export function Cart() {
   const {
-    state: { cartItems },
+    state: { cartItems, wishListItems },
     addToWishList,
     open,
     setOpen,
@@ -142,7 +142,10 @@ export function Cart() {
                         Remove
                       </button>
 
-                      {!cartItem.isWishListed ? (
+                      {!checkIfProductExistsInList(
+                        wishListItems,
+                        cartItem.id
+                      ) ? (
                         <button
                           className="secondary-btn 
                       curved-edge-btn"
@@ -164,7 +167,6 @@ export function Cart() {
                       )}
                     </div>
                   </div>
-                  <div className="padding-five"></div>
                 </li>
               ))}
             </ul>

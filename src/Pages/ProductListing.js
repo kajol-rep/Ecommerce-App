@@ -12,12 +12,17 @@ import { useData } from "../Contexts/dataProvider";
 import Modal from "../Components/Modal";
 import { useAuth } from "../Contexts/authProvider";
 import { LoginModal } from "../Components/LoginModal";
-import { calculateDiscount, formatString } from "../util";
+import {
+  calculateDiscount,
+  checkIfProductExistsInList,
+  formatString
+} from "../util";
 
 export function ProductsListing() {
   const {
     state: {
       products,
+      wishListItems,
       searchedItems,
       showInventoryAll,
       showFastDeliveryOnly,
@@ -229,7 +234,10 @@ export function ProductsListing() {
                           : setOpen("login-modal")
                       }
                     >
-                      {productItem.isWishListed ? (
+                      {checkIfProductExistsInList(
+                        wishListItems,
+                        productItem.id
+                      ) ? (
                         <HiHeart size="1rem" color="red" />
                       ) : (
                         <HiOutlineHeart size="1rem" />

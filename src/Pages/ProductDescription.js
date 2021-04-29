@@ -5,13 +5,13 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import Modal from "../Components/Modal";
 import { LoginModal } from "../Components/LoginModal";
 import { useAuth } from "../Contexts/authProvider";
-import { calculateDiscount } from "../util";
+import { calculateDiscount, checkIfProductExistsInList } from "../util";
 import Badge from "../Components/Badge";
 import { HiStar } from "react-icons/hi";
 export function ProductDescription() {
   const { productId } = useParams();
   const {
-    state: { products },
+    state: { products, wishListItems, cartItems },
     addToCart,
     open,
     setOpen,
@@ -78,7 +78,7 @@ export function ProductDescription() {
           <p>{product?.shortDescription}</p>
 
           <div className="flex-row flex-wrap flex-gap">
-            {!product?.isWishListed ? (
+            {!checkIfProductExistsInList(wishListItems, product?.id) ? (
               <button
                 className="secondary-btn 
                       curved-edge-btn"
