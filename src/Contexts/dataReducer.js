@@ -1,11 +1,11 @@
-export const dataReducer = (state, action) => {
-  switch (action.type) {
+export const dataReducer = (state, { type, payload }) => {
+  switch (type) {
     case "FETCH_PRODUCTS":
-      return { ...state, products: action.payload };
+      return { ...state, products: payload };
     case "FETCH_TO_WISHLIST":
-      return { ...state, wishListItems: action.payload };
+      return { ...state, wishListItems: payload };
     case "SORT":
-      return { ...state, sortBy: action.payload };
+      return { ...state, sortBy: payload };
     case "TOGGLE_INVENTORY":
       return (state = {
         ...state,
@@ -17,7 +17,7 @@ export const dataReducer = (state, action) => {
         showSidebar: !state.showSidebar
       });
     case "SEARCH":
-      return { ...state, searchItem: action.payload };
+      return { ...state, searchItem: payload };
     case "TOGGLE_DELIVERY":
       return (state = {
         ...state,
@@ -27,26 +27,26 @@ export const dataReducer = (state, action) => {
       return {
         ...state,
 
-        wishListItems: state.wishListItems.concat(action.payload)
+        wishListItems: state.wishListItems.concat(payload)
       };
     case "REMOVE_ITEM_FROM_WISHLIST":
       return {
         ...state,
         wishListItems: state.wishListItems.filter(
-          (item) => item.id !== action.payload.id
+          (item) => item.id !== payload.id
         )
       };
     case "ADD_ITEM_TO_CART":
       return {
         ...state,
 
-        cartItems: state.cartItems.concat(action.payload)
+        cartItems: state.cartItems.concat(payload)
       };
     case "INCREMENT_QUANTITY":
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item.id === action.payload.id
+          item.id === payload.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         )
@@ -55,7 +55,7 @@ export const dataReducer = (state, action) => {
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item.id === action.payload.id
+          item.id === payload.id
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
@@ -63,36 +63,34 @@ export const dataReducer = (state, action) => {
     case "REMOVE_ITEM_FROM_CART":
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.id !== action.payload.id
-        )
+        cartItems: state.cartItems.filter((item) => item.id !== payload.id)
       };
     case "OPEN_SNACKBAR":
       return {
         ...state,
-        snackbarText: action.payload,
-        isSnackbarActive: action.payload
+        snackbarText: payload,
+        isSnackbarActive: payload
       };
     case "CLOSE_SNACKBAR":
       return {
         ...state,
-        snackbarText: action.payload,
-        isSnackbarActive: action.payload
+        snackbarText: payload,
+        isSnackbarActive: payload
       };
 
     case "SEARCH_ITEM":
-      const searchResult = getSearchedItems(action.payload, state.products);
+      const searchResult = getSearchedItems(payload, state.products);
       state.searchedItems = [];
 
       return {
         ...state,
         searchedItems: state.searchedItems.concat(searchResult),
-        itemToSearch: action.payload
+        itemToSearch: payload
       };
     case "SET_SELECTED_PET":
       return {
         ...state,
-        petsType: action.payload
+        petsType: payload
       };
     default:
       return state;

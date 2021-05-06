@@ -16,6 +16,7 @@ import { PasswordReset } from "./Pages/PasswordReset";
 import { PrivateRoute } from "./Components/PrivateRoute";
 import { Categories } from "./Pages/Categories";
 import { url } from "./util";
+import { Router } from "./Components/Router";
 
 export default function App() {
   const {
@@ -40,17 +41,7 @@ export default function App() {
       <NavBar />
 
       <div className="margin-top">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products-listing" element={<ProductsListing />} />
-          <PrivateRoute path="/wishlist" element={<WishList />} />
-          <Route path="/product/:productId" element={<ProductDescription />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/reset-password" element={<PasswordReset />} />
-          <Route path="/categories" element={<Categories />} />
-        </Routes>
+        <Router />
       </div>
       {snackbarText && <Snackbar />}
     </div>
