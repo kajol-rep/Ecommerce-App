@@ -3,18 +3,7 @@ import "./styles.css";
 import axios from "axios";
 import { Snackbar } from "./Components/Snackbar";
 import { useData } from "./Contexts/dataProvider";
-import { Routes, Route } from "react-router-dom";
-import { Home } from "./Pages/Home";
-import { Cart } from "./Pages/Cart";
-import { ProductsListing } from "./Pages/ProductListing";
-import { WishList } from "./Pages/WishList";
-import { ProductDescription } from "./Pages/ProductDescription";
 import { NavBar } from "./Components/NavBar";
-import { Login } from "./Pages/Login";
-import { Register } from "./Pages/Register";
-import { PasswordReset } from "./Pages/PasswordReset";
-import { PrivateRoute } from "./Components/PrivateRoute";
-import { Categories } from "./Pages/Categories";
 import { url } from "./util";
 import { Router } from "./Components/Router";
 
