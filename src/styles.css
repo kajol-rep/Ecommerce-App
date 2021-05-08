@@ -1,0 +1,400 @@
+@import url("https://wrap-it-library.netlify.app/styles.css");
+
+body {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+hr {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: inset;
+  border-left-style: none;
+}
+.snackbar {
+  background-color: #374151;
+  color: white;
+  padding: 0.8rem;
+  position: fixed;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  border-radius: 2px;
+  z-index: 100;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.white {
+  color: white;
+}
+.black {
+  color: black;
+}
+.pointer {
+  cursor: pointer;
+}
+.img-container img {
+  height: 200px;
+}
+nav {
+  box-sizing: border-box;
+  background-color: rgb(204, 221, 253);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  color: white;
+  padding: 1rem;
+  z-index: 99;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -90px;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.flex-gap {
+  gap: 12px;
+}
+.flex {
+  display: flex;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+}
+.flex-grow-one {
+  flex-grow: 1;
+}
+.flex-grow-two {
+  flex-grow: 2;
+}
+.space-between {
+  justify-content: space-between;
+}
+.padding-one {
+  padding: 1rem;
+}
+.padding-top-5 {
+  padding-top: 10px;
+}
+.padding-bottom-5 {
+  padding-top: 5px;
+}
+.logo-text {
+  font-family: Courier New, monospace;
+  color: rgb(5, 151, 196);
+}
+.logo {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 320px) {
+  .search-bar {
+    display: none;
+  }
+  .mobile-search-bar {
+    display: block;
+  }
+  .mobile-search-bar {
+    padding: 0.5rem;
+    border: none;
+    width: 15rem;
+    background-color: white;
+    border: solid 1px #dcdcdc;
+  }
+
+  .mobile-search-btn {
+    padding: 9px;
+    display: block;
+  }
+  .search-btn {
+    display: none;
+  }
+  .margin-top {
+    margin-top: 6.6rem;
+  }
+
+  .slider-text {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .slider-image {
+    height: 50vh;
+  }
+  .brand-img {
+    height: 1.5rem;
+  }
+  .form-box {
+    width: 250px;
+  }
+  .desktop-mode {
+    display: none;
+  }
+  .mobile-mode {
+    display: block;
+  }
+  .qty-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-top: 0.5px solid rgb(133, 133, 133);
+    border-bottom: 0.5px solid rgb(133, 133, 133);
+    padding-bottom: 2px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mobile-search-btn {
+    display: none;
+  }
+  .search-btn {
+    padding: 7.5px;
+    display: block;
+  }
+
+  .search-bar {
+    display: block;
+  }
+  .search-bar {
+    padding: 0.5rem;
+    border: none;
+    width: 20rem;
+    background-color: white;
+    border: solid 1px #dcdcdc;
+  }
+  .mobile-search-bar {
+    display: none;
+  }
+  .margin-top {
+    margin-top: 4.4rem;
+  }
+  .slider-text {
+    width: 40%;
+    padding: 3rem;
+  }
+  .slider-image {
+    height: 89vh;
+  }
+  .brand-img {
+    height: inherit;
+  }
+  .gc2-d {
+    grid-template-columns: auto 30%;
+  }
+  .gc2-for-productlist {
+    grid-template-columns: 250px auto;
+  }
+  .padding3-left-right {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .form-box {
+    width: 300px;
+  }
+  .desktop-mode {
+    display: block;
+  }
+  .mobile-mode {
+    display: none;
+  }
+  .qty-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-top: 1px solid rgb(133, 133, 133);
+    border-bottom: 1px solid rgb(133, 133, 133);
+    padding-bottom: 2px;
+  }
+  .gc2-decription {
+    grid-template-columns: auto auto;
+  }
+  .gc2-wishlist {
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    grid-template-columns: 200px auto;
+  }
+}
+.simple-btn {
+  border-radius: 0;
+  border: solid 1px #dcdcdc;
+}
+.simple-btn:hover:focus {
+  background-color: rgb(224, 223, 223);
+}
+.width-full {
+  width: 100%;
+}
+.height-full {
+  height: 100%;
+}
+.height-half {
+  height: 50vh;
+}
+.slider-text {
+  color: white;
+  height: 100%;
+}
+.bg-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.opacity {
+  opacity: 0.9;
+}
+.rating-badge {
+  bottom: -5px;
+  padding: 0;
+}
+.position-relative {
+  position: relative;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.gc2 {
+  grid-template-columns: auto auto;
+}
+.gend {
+  justify-self: end;
+}
+.grid-justify-center {
+  justify-self: center;
+}
+
+.light-border {
+  border: 1px solid #e8e8e8;
+}
+
+.bg-white {
+  background-color: white;
+}
+.form-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto auto;
+  box-shadow: 0 0 10px #000;
+  height: auto;
+  margin-top: 8rem;
+  color: white;
+}
+.form-box:before {
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/1021/242/468/beagles-dog-blurred-depth-of-field-wallpaper-preview.jpg");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  filter: blur(2px);
+}
+.sort-filter-box {
+  box-sizing: border-box;
+  background-color: rgb(204, 221, 253);
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  color: black;
+  padding: 1rem;
+  z-index: 99;
+}
+.padding-left {
+  padding-left: 10px;
+}
+.padding-right {
+  padding-right: 10px;
+}
+.padding-top {
+  padding-top: 10px;
+}
+.card-image {
+  height: 230px;
+  width: 250px;
+}
+.small-card-image {
+  height: 150px;
+  width: 200px;
+}
+.img-container img {
+  height: 100%;
+}
+.strike {
+  text-decoration: line-through;
+}
+.space-even {
+  justify-content: space-evenly;
+}
+.padding-five {
+  padding: 5rem;
+}
+.margin-auto {
+  margin: auto auto;
+}
