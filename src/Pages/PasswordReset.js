@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { HiEyeOff, HiEye } from "react-icons/hi";
 import { useToggle } from "../CustomHooks/useToggle";
 import { Link } from "react-router-dom";
 
 export function PasswordReset() {
-  const navigate = useNavigate();
   const [newPassword, setnewPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [errorState, setErrorState] = useState("");

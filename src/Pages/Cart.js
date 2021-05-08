@@ -131,7 +131,7 @@ export function Cart() {
                     </div>
                     <div className="flex-row padding-one space-even">
                       <button
-                        class="danger-btn curved-edge-btn"
+                        className="danger-btn curved-edge-btn"
                         onClick={() =>
                           dispatch({
                             type: "REMOVE_ITEM_FROM_CART",

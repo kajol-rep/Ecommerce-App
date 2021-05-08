@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, useState } from "react";
 import { checkIfProductExistsInList } from "../util";
 import { dataReducer } from "./dataReducer";
 
-export const DataContext = createContext();
+const DataContext = createContext();
 export function useData() {
   return useContext(DataContext);
 }
@@ -24,7 +24,6 @@ export function DataProvider({ children }) {
 
   function addToCart(productItem) {
     dispatch({ type: "OPEN_SNACKBAR", payload: "Added to cart !" });
-    console.log("isaddedtoCart", productItem.isAddedToCart);
     !checkIfProductExistsInList(state.cartItems, productItem.id)
       ? dispatch({
           type: "ADD_ITEM_TO_CART",
@@ -34,11 +33,8 @@ export function DataProvider({ children }) {
           type: "INCREMENT_QUANTITY",
           payload: productItem
         });
-    console.log("isaddedtoCart", productItem.isAddedToCart);
   }
   function addToWishList(productItem) {
-    console.log("inside handlewish", productItem.name);
-
     if (!checkIfProductExistsInList(state.wishListItems, productItem.id)) {
       dispatch({ type: "OPEN_SNACKBAR", payload: "Added to wishlist !" });
       dispatch({
@@ -52,11 +48,8 @@ export function DataProvider({ children }) {
         payload: productItem
       });
     }
-    console.log("is wishlisted", productItem.isWishListed);
-    console.log("is addedtoCart", productItem.isAddedToCart);
   }
   function addToCartFromWishlist(wishListItem) {
-    console.log("wishlst added to cart", wishListItem.isAddedToCart);
     dispatch({ type: "OPEN_SNACKBAR", payload: "Moved to cart !" });
     dispatch({
       type: "REMOVE_ITEM_FROM_WISHLIST",
@@ -66,8 +59,6 @@ export function DataProvider({ children }) {
       type: "ADD_ITEM_TO_CART",
       payload: { ...wishListItem, quantity: 1 }
     });
-
-    console.log("after wishlst added to cart", wishListItem.isAddedToCart);
   }
   function handleClose() {
     setOpen(null);

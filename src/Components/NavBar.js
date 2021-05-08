@@ -5,8 +5,7 @@ import {
   HiSearch,
   HiOutlineUserCircle
 } from "react-icons/hi";
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 import { useData } from "../Contexts/dataProvider";
 import Badge from "./Badge";
 import { useAuth } from "../Contexts/authProvider";
@@ -30,16 +29,16 @@ export function NavBar() {
   return (
     <nav>
       <div className="activeNav flex-row flex-gap">
-        <Link className="nav-header link-btn" to="/">
+        <NavLink className="nav-header link-btn" to="/">
           <img
             alt="logo"
             className="logo"
             src="https://i.pinimg.com/236x/d7/e6/fe/d7e6fe6c4e540f6468d8638f5008c1d9--pet-logo-cafe-logo.jpg"
           />
-          <span className="logo-text" style={{ fontSize: "1.5rem" }}>
-            Petso.<span style={{ fontSize: "1rem" }}>com</span>
+          <span className="logo-text medium-text">
+            Petso.<span className="small-text">com</span>
           </span>
-        </Link>
+        </NavLink>
 
         <div className="flex-row flex-grow-one">
           <div className="search-bar">
@@ -51,18 +50,18 @@ export function NavBar() {
               className="width-full"
             ></input>
           </div>
-          <Link className="link-btn" to="/products-listing">
+          <NavLink className="link-btn" to="/products-listing">
             <button
               className="search-btn simple-btn"
               onClick={() => searchItems()}
             >
               <HiSearch size="1rem" />
             </button>
-          </Link>
+          </NavLink>
         </div>
         <div className="tooltip">
           <HiOutlineUserCircle size="2rem" color="black" />
-          <div class="tooltiptext light-border card-shadow">
+          <div className="tooltiptext light-border card-shadow">
             {login ? (
               <div>
                 <div className="small-text bold-text">Hi</div>
@@ -74,9 +73,9 @@ export function NavBar() {
                   onClick={logoutUser}
                   className="primary-btn curved-edge-btn"
                 >
-                  <Link className="link-btn" to="/login">
+                  <NavLink className="link-btn" to="/login">
                     Logout
-                  </Link>
+                  </NavLink>
                 </button>
               </div>
             ) : (
@@ -87,15 +86,15 @@ export function NavBar() {
                 </div>
                 <br />
                 <button className="primary-btn curved-edge-btn">
-                  <Link className="link-btn" to="/login">
+                  <NavLink className="link-btn" to="/login">
                     Login
-                  </Link>
+                  </NavLink>
                 </button>
               </div>
             )}
           </div>
         </div>
-        <Link className="link-btn" to="/wishlist">
+        <NavLink className="link-btn" to="/wishlist">
           <div className="p-relative inline-block">
             <HiOutlineHeart size="2rem" color="black" />{" "}
             {wishListItems.length > 0 && (
@@ -107,8 +106,8 @@ export function NavBar() {
               </div>
             )}
           </div>
-        </Link>
-        <Link className="link-btn" to="/cart">
+        </NavLink>
+        <NavLink className="link-btn" to="/cart">
           <div className="p-relative inline-block">
             <HiOutlineShoppingCart size="2rem" color="black" />{" "}
             {TotalItemsInCart > 0 && (
@@ -120,7 +119,7 @@ export function NavBar() {
               </div>
             )}
           </div>
-        </Link>
+        </NavLink>
       </div>
       <div className="flex-row ">
         <div className="mobile-search-bar">
@@ -133,14 +132,14 @@ export function NavBar() {
           ></input>
         </div>
         <div className="">
-          <Link className="link-btn" to="/products-listing">
+          <NavLink className="link-btn" to="/products-listing">
             <button
               className="mobile-search-btn simple-btn"
               onClick={() => searchItems()}
             >
               <HiSearch />
             </button>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>
