@@ -47,7 +47,6 @@ export function ProductsListing() {
       }
       return items;
     } else {
-      console.log(searchedItems);
       if (sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
         return searchedItems.sort((a, b) => b.price - a.price);
       }

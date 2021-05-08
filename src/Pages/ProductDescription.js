@@ -11,7 +11,7 @@ import { HiStar } from "react-icons/hi";
 export function ProductDescription() {
   const { productId } = useParams();
   const {
-    state: { products, wishListItems, cartItems },
+    state: { products, wishListItems },
     addToCart,
     open,
     setOpen,

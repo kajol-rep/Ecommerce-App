@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HiEyeOff, HiEye } from "react-icons/hi";
 import { useToggle } from "../CustomHooks/useToggle";
+import { Link } from "react-router-dom";
 
 export function PasswordReset() {
   const navigate = useNavigate();
@@ -30,10 +31,6 @@ export function PasswordReset() {
     } else {
       setErrorState("");
     }
-  }
-
-  function buttonHandler(e) {
-    navigate("/login");
   }
 
   return (
@@ -70,12 +67,9 @@ export function PasswordReset() {
           <br />
           <div className="smallest-text red">{errorState}</div>
           <br />
-          <button
-            class="primary-btn curved-edge-btn"
-            onClick={() => buttonHandler()}
-          >
+          <Link class="primary-btn link-btn curved-edge-btn" to="/login">
             Continue
-          </button>
+          </Link>
         </form>
       </div>
     </div>

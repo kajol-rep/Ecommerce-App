@@ -7,7 +7,6 @@ export function Categories() {
   const {
     state: { petsType }
   } = useData();
-  console.log(petsType);
   return (
     <div className="padding-one padding3-left-right">
       <p className="medium-text bold-text text-center">SELECT YOUR CATEGORY</p>
